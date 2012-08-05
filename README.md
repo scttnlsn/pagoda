@@ -32,8 +32,7 @@ Stacks execute an ordered list of functions.  To register functions with a stack
         },
         function(next) {
             // second
-        },
-        …
+        }
     );
     
     stack.use(function(next) {
