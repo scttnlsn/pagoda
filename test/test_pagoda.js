@@ -1,11 +1,11 @@
 var assert = require('assert');
-var Stack = require('../lib/stack');
+var pagoda = require('../pagoda');
 
 describe('Stack', function() {
     var stack;
 
     beforeEach(function() {
-        stack = new Stack();
+        stack = pagoda.stack();
     });
 
     describe('when adding function', function() {

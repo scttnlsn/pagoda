@@ -1,7 +1,7 @@
 pagoda
 ===
 
-Reusable function stacks.
+Reusable function stacks for Node.js and the browser.
 
 Example
 ---
@@ -70,4 +70,10 @@ Install
 Tests
 ---
 
+To test with Node.js, run:
+
     make test
+
+Test in the browser, open:
+
+    test/index.html
