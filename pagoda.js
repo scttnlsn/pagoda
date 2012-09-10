@@ -35,22 +35,26 @@
         return this;
     };
 
-    Stack.prototype.handle = function(context) {
+    Stack.prototype.handle = function(context, callback) {
         var self = this;
         var index = 0;
+
+        if (typeof context === 'function' && callback === undefined) {
+            callback = context;
+            context = {};
+        }
 
         function next(err) {
             var layer = self.layers[index++];
 
             if (!layer) {
                 // Reached bottom of stack
-                if (err) throw err;
-                return;
+                return callback(err);
             }
 
             var exec = function(args) {
                 try {
-                    layer.apply(context || {}, args);
+                    layer.apply(context, args);
                 } catch (err) {
                     next(err);
                 }

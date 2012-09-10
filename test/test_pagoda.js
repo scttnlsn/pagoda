@@ -64,13 +64,14 @@ describe('Stack', function() {
             stack.handle();
         });
 
-        it('throws unhandled errors', function() {
+        it('passes unhandled errors to handle callback', function(done) {
             stack.use(function() {
                 throw new Error();
             });
 
-            assert.throws(function() {
-                stack.handle();
+            stack.handle(function(err) {
+                assert.ok(err);
+                done();        
             });
         });
 
